@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收藏品紀錄</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/record.css" rel="stylesheet">
+</head>
+<body>
+    <div class="anytix">
+        <div class="main-content" id="app">
+            <div class="page-title-wrap">
+                <!-- <a class="previous-link" data-color="dark" href="#"></a> -->
+                <h2>收藏品紀錄</h2>
+                <a class="close-link" href="#"></a>
+            </div>
+            <div class="page-title-wrap infun">
+                <a class="previous-link" data-color="dark" href="./blockchain-record-list.html"></a>
+                <h2>查看詳情</h2>
+                <!-- <a class="close-link" href="#"></a> -->
+            </div>
+            <div class="pd-box">
+                <div class="pd-list">
+                    <div class="pd-img">
+                        <img src="images/pd-3d.jpg" alt=""/>
+                    </div>
+                    <div class="pd-info">
+                        <h3>ATB-原子少年能量盒1</h3>
+                    </div>
+                </div>
+                <h4>區塊鏈資訊</h4>
+                <div class="blockchain-info">
+                    <ul>
+                        <li>
+                            <template v-for="item,idx in addressInfo">
+                                <span class="title">合約地址</span>
+                                <span class="info" :class="item.copied? 'active': '' ">
+                                    <textarea :id="'code' + idx" readonly :value="item.address"></textarea>
+                                    <button class="btn-copy" @click="copyPin(idx)">
+                                        <img class="animated fadeIn" src="./images/icon/ic-copy-dark.svg" alt="" v-if="!item.copied">
+                                        <template v-else>
+                                            <img class="animated fadeIn" src="./images/icon/ic-copy-primary.svg" alt="">
+                                        </template>
+                                    </button>
+                                </span>
+                            </template>
+                        </li>
+                        <li>
+                            <template v-for="item,idx in tokenInfo">
+                                <span class="title">Token ID</span>
+                                <span class="info" :class="item.copied? 'active': '' ">
+                                    <textarea :id="'code2' + idx" readonly :value="item.tokenID"></textarea>
+                                    <button class="btn-copy" @click="copyPin2(idx)">
+                                        <img class="animated fadeIn" src="./images/icon/ic-copy-dark.svg" alt="" v-if="!item.copied">
+                                        <template v-else>
+                                            <img class="animated fadeIn" src="./images/icon/ic-copy-primary.svg" alt="">
+                                        </template>
+                                    </button>
+                                </span>
+                            </template>
+                        </li>
+                        <li>
+                            <span class="title">區塊鏈</span>
+                            <span class="info">Polygon</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="blockchain-wall animated fadeIn">
+                <template v-for="item,idx in recordList">
+                    <div class="record-list">
+                        <div class="record-title">
+                            <h4>{{item.title}}</h4>
+                            <div class="record-icon">
+                                <img src="images/icon/ic_arrow-downdown_dark.svg" alt=""/>
+                            </div>
+                        </div>
+                        <div class="blockchain-info">
+                            <ul>
+                                <li >
+                                    <span class="title">TxHash</span>
+                                    <span class="info" :class="item.copied? 'active': '' ">
+                                        <textarea :id="'code3' + idx" readonly :value="item.TxHash"></textarea>
+                                        <button class="btn-copy" @click="copyPin3(idx)">
+                                            <img class="animated fadeIn" src="./images/icon/ic-copy-dark.svg" alt="" v-if="!item.copied">
+                                            <template v-else>
+                                                <img class="animated fadeIn" src="./images/icon/ic-copy-primary.svg" alt="">
+                                            </template>
+                                        </button>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="title">Status</span>
+                                    <template v-if="item.status === 1" key="waiting">
+                                        <span class="info waiting"><span>等待中</span></span>
+                                    </template> 
+                                    <template v-if="item.status === 2" key="success">
+                                        <span class="info success"><span>成功</span></span>
+                                    </template>
+                                    <template v-if="item.status === 3" key="fail">
+                                        <span class="info fail"><span>失敗</span></span>
+                                    </template>
+                                </li>
+                                <li>
+                                    <span class="title">Time</span>
+                                    <span class="info">{{item.time}}</span>
+                                </li>
+
+                                <li>
+                                    <template v-if="item.turnover === 1" key="outType">
+                                        <span class="title">To</span>
+                                    </template>
+                                    <template v-if="item.turnover === 2" key="inType">
+                                        <span class="title">From</span>
+                                    </template>
+                                    <span class="info">{{item.to}}</span>
+                                </li>
+                                <li>
+                                    <span class="title">Blockchain</span>
+                                    <span class="info">{{item.blockchain}}</span>
+                                </li >
+                                <template v-if="item.turnover === 2" key="inType">
+                                    <li>
+                                        <span class="title">Gas fee</span>
+                                        <span class="info">{{item.gas}} Gwei</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Fees</span>
+                                        <span class="info">TWD {{item.fees}}</span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </template>
+                <!-- <a href="blockchain-in.html" class="btn">轉入 beanfun! 我的寶貝</a> -->
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="./js/lottie.min.js"></script>
+    <script>
+        var jQfn = function (){
+        };
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    addressInfo: [
+                        {
+                            address: '020wr3983bsf09ugdqw45sty4h29291391eqwe1922020wr3983bsf09ugdqw',
+                            copied: false,
+                        }
+                    ],
+                    tokenInfo: [
+                        {
+                            tokenID: '246234198763950',
+                            copied: false,
+                        }
+                    ],
+                    recordList: [
+                        {
+                            turnover: 1,
+                            status: 1,
+                            title: '2021/07/23 轉出紀錄',
+                            TxHash: '020wr3983bsf09ugdqw45sty4h29291391eqwe1922',
+                            copied: false,
+                            time: '2022/03/23 15:00:00',
+                            to: '3921wqiejiqjd29131i29319kao102i12',
+                            blockchain: 'Polygon',
+                            // cost: '30',
+                            // fee: '3',
+                            // order: '12345678',
+                        },
+                        {
+                            turnover: 1,
+                            status: 3,
+                            title: '2021/07/23 轉出紀錄',
+                            TxHash: '020wr3983bsf09ugdqw45sty4h29291391eqwe1922',
+                            copied: false,
+                            time: '2022/03/23 15:00:00',
+                            to: '3921wqiejiqjd29131i29319kao102i12',
+                            blockchain: 'Polygon',
+                            // cost: '30',
+                            // fee: '3',
+                            // order: '12345678',
+                        },
+                        {
+                            turnover: 2,
+                            status: 2,
+                            title: '2021/07/23 轉入紀錄',
+                            TxHash: '020wr3983bsf09ugdqw45sty4h29291391eqwe1922111111',
+                            copied: false,
+                            time: '2022/03/23 15:00:00',
+                            to: '3921wqiejiqjd29131i29319kao102i12',
+                            blockchain: 'Polygon',
+                            gas: '34',
+                            fees: '25',
+                        },
+
+                    ],
+                }
+            },
+            watch: {
+
+            },
+            methods: {
+                copyPin: function(idx) {
+                    // alert();
+                    let inputID = '#code' + idx ;
+                    $(inputID).select();
+                    document.execCommand('copy');
+                    this.addressInfo[idx].copied = true
+                    window.setTimeout(function(){
+                        vm.addressInfo[idx].copied = false
+                    }, 2000);
+                },
+                copyPin2: function(idx) {
+                    // alert();
+                    let inputID = '#code2' + idx ;
+                    $(inputID).select();
+                    document.execCommand('copy');
+                    this.tokenInfo[idx].copied = true
+                    window.setTimeout(function(){
+                        vm.tokenInfo[idx].copied = false
+                    }, 2000);
+                },
+                copyPin3: function(idx) {
+                    // alert();
+                    let inputID = '#code3' + idx ;
+                    $(inputID).select();
+                    document.execCommand('copy');
+                    this.recordList[idx].copied = true
+                    window.setTimeout(function(){
+                        vm.recordList[idx].copied = false
+                    }, 2000);
+                },
+            },
+        });
+ 
+
+        $(function(){
+            //展開收合
+            $(".record-icon").click(function(){
+                $(this).toggleClass("expand");
+                if($(this).hasClass("expand")){
+                    $(this).parent().siblings(".blockchain-info").slideDown("slow");
+                }else{
+                    $(this).parent().siblings(".blockchain-info").slideUp("slow");
+                };
+            });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轉出至區塊鏈</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="./css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/blockchain.css" rel="stylesheet">
+</head>
+<body>
+    <div class="anytix">
+        <div class="main-content" id="app">
+            <div class="page-title-wrap">
+                <!-- <a class="previous-link" data-color="dark" href="#"></a> -->
+                <template v-if="pathway === 0" key="outType">
+                    <h2>轉出至區塊鏈</h2>
+                </template>
+                <template v-if="pathway === 1" key="inType">
+                    <h2>轉入至 beanfun!</h2>
+                </template>
+                <a class="close-link" href="#"></a>
+            </div>
+            <div class="blockchain-wall animated fadeIn have-blockchain-button">
+                <div class="event-box">
+                    <img src="images/fail.svg" alt=""/>
+                    <template v-if="pathway === 0" key="outType">
+                        <p class="title">轉出失敗</p>
+                        <p class="desc">轉出異常，請重試一次。</p>
+                    </template>
+                    <template v-if="pathway === 1" key="inType">
+                        <p class="title">付款失敗</p>
+                        <p class="desc">交易異常，請重試一次。</p>
+                    </template>
+                </div>
+                <div class="blockchain-button">
+                    <template v-if="pathway === 0" key="outType">
+                        <button class="btn" type="submit">回到{{type}}</button>
+                    </template>
+                    <template v-if="pathway === 1" key="inType">
+                        <button class="btn" type="submit">關閉</button>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery.fancybox.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script>
+        var jQfn = function (){
+
+        };
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    pathway: 1,
+                    type: '收藏品',
+                    // url: './blockchain-link.html',
+                }
+            },
+            watch: {
+
+            },
+            methods: {
+                // viewRecords(){
+                //     window.location.href = this.url;
+                // },
+            },
+        });
+    </script>
+  </body>
+</html>

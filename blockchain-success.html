@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轉出至區塊鏈</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="./css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/blockchain.css" rel="stylesheet">
+</head>
+<body>
+    <div class="anytix">
+        <div class="main-content" id="app">
+            <div class="page-title-wrap">
+                <!-- <a class="previous-link" data-color="dark" href="#"></a> -->
+                <template v-if="pathway === 0" key="outType">
+                    <h2>轉出至區塊鏈</h2>
+                </template>
+                <template v-if="pathway === 1" key="inType">
+                    <h2>轉入至 beanfun!</h2>
+                </template>
+                <a class="close-link" href="#"></a>
+            </div>
+            <div class="blockchain-wall animated fadeIn have-blockchain-button">
+                <div class="event-box">
+                    <img src="images/success.svg" alt=""/>
+                    <!-- 轉出 -->
+                    <template v-if="pathway === 0" key="outType">
+                        <p class="title">轉出成功，等待資產上鏈中</p>
+                        <p class="desc">資產正在進行轉入區塊鏈，通常需要一段處理時間，轉入區塊鏈成功後即可在 Metamask 內查看。並開啟 Metamask 查看時，請切換至 Polygon 網路。</p>
+                    </template>
+                    <!-- 轉入 -->
+                    <template v-if="pathway === 1" key="inType">
+                        <p class="title">付款成功，等待資產下鏈中</p>
+                        <p class="desc">資產正在進行轉出區塊鏈，通常需要一些處理時間，轉出成功後即可在 beanfun! App 內查看。</p>
+                    </template>
+                </div>
+                <div class="state-box">
+                    <div class="product-box">
+                        <div class="pd-img">
+                            <img src="images/pd-3d.jpg" alt=""/>
+                        </div>
+                        <div class="pd-info">
+                            <h3>【官方獨家10款】小玉的眼鏡獨家限定款爆棚熱門刺蝟</h3>
+                            <p>Token ID：24623xxx8763950</p>
+                            <p>數量：1</p>
+                        </div>
+                    </div>
+                    <div class="state-info">
+                        <ul>
+                            <li>
+                                <span class="title">狀態</span>
+                                <span class="info waiting"><span>等待中</span></span>
+                            </li>
+                            <li>
+                                <span class="title">時間</span>
+                                <span>2022/03/23 15:00:00</span>
+                            </li>
+                            <template v-if="pathway === 1" key="inType">
+                                <li>
+                                    <span class="title">手續費</span>
+                                    <span>0.00441 MATIC</span>
+                                </li>
+                            </template>
+                            <li>
+                                <span class="title">紀錄</span>
+                                <a href="#" target="_blank">點我查看</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <template v-if="pathway === 0" key="outType">
+                    <div class="blockchain-button">
+                        <button class="btn" type="submit" @click=viewRecords>查看{{type}}使用紀錄</button>
+                        <button class="btn-ghost" type="submit">回到{{type}}</button>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery.fancybox.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script>
+        var jQfn = function (){
+
+        }; 
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    pathway: 0,
+                    type: '收藏品',
+                    url: './blockchain-record-list.html',
+                }
+            },
+            watch: {
+
+            },
+            methods: {
+                viewRecords(){
+                    window.location.href = this.url;
+                },
+            },
+        });
+    </script>
+  </body>
+</html>

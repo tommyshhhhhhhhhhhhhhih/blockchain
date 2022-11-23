@@ -1,0 +1,174 @@
+.loader {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .loader__img-box {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    margin-top: -3.125rem;
+    margin-left: -3.125rem;
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 99px;
+  }
+  
+  .loader__img-box::before, .loader__img-box::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.3;
+    border-radius: 99px;
+  }
+  
+  .loader__img-box::before {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  
+  .loader__img-box::after {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+  
+  .loader__svg-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -1.25rem;
+    margin-left: -1.25rem;
+    width: 46px;
+    height: 40px;
+  }
+  
+  .loader .bean {
+    -webkit-transform-origin: 17.5px 39.5px;
+            transform-origin: 17.5px 39.5px;
+    -webkit-animation: bean-shake-body 2s infinite alternate;
+            animation: bean-shake-body 2s infinite alternate;
+  }
+  
+  .loader .eye-r, .loader .eye-l {
+    display: none;
+    -webkit-animation: bean-eyes-blink 2s infinite;
+            animation: bean-eyes-blink 2s infinite;
+  }
+  
+  .loader .eye-r {
+    -webkit-transform-origin: 10px 14.5px;
+            transform-origin: 10px 14.5px;
+  }
+  
+  .loader .eye-l {
+    -webkit-transform-origin: 19px 16.5px;
+            transform-origin: 19px 16.5px;
+  }
+  
+  .loader.is-loaded {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s 1s;
+    transition: opacity 0.5s 1s;
+    pointer-events: none;
+  }
+  
+  .loader.is-loaded .loader__img-box, .loader.is-loaded .loader__img-box::before, .loader.is-loaded .loader__img-box::after {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transition: -webkit-transform 0.5s 0.8s;
+    transition: -webkit-transform 0.5s 0.8s;
+    transition: transform 0.5s 0.8s;
+    transition: transform 0.5s 0.8s, -webkit-transform 0.5s 0.8s;
+  }
+  
+  .loader.is-loaded .loader__img-box::before {
+    -webkit-transition-delay: 0.7s;
+            transition-delay: 0.7s;
+  }
+  
+  .loader.is-loaded .loader__img-box::after {
+    -webkit-transition-delay: 0.6s;
+            transition-delay: 0.6s;
+  }
+  
+  .loader.is-loaded .bean {
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
+  
+  .loader.is-loaded .eye-r,
+  .loader.is-loaded .eye-l {
+    display: block;
+  }
+  
+  .loader.is-loaded .eye-r-sleep,
+  .loader.is-loaded .eye-l-sleep {
+    display: none;
+  }
+  
+  @-webkit-keyframes bean-shake-body {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(-20deg);
+              transform: rotate(-20deg);
+    }
+  }
+  
+  @keyframes bean-shake-body {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(-20deg);
+              transform: rotate(-20deg);
+    }
+  }
+  
+  @-webkit-keyframes bean-eyes-blink {
+    0% {
+      -webkit-transform: rotate(16deg) scale(1, 0.05);
+              transform: rotate(16deg) scale(1, 0.05);
+    }
+    10%,
+    100% {
+      -webkit-transform: rotate(16deg) scale(1, 1);
+              transform: rotate(16deg) scale(1, 1);
+    }
+  }
+  
+  @keyframes bean-eyes-blink {
+    0% {
+      -webkit-transform: rotate(16deg) scale(1, 0.05);
+              transform: rotate(16deg) scale(1, 0.05);
+    }
+    10%,
+    100% {
+      -webkit-transform: rotate(16deg) scale(1, 1);
+              transform: rotate(16deg) scale(1, 1);
+    }
+  }

@@ -1,0 +1,833 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+:root {
+  --font-size: 18px;
+}
+
+@media screen and (max-width: 320px) {
+  :root {
+    --font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 421px) {
+  :root {
+    --font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 468px) {
+  :root {
+    --font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 562.5px) {
+  :root {
+    --font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 609.375px) {
+  :root {
+    --font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 656.25px) {
+  :root {
+    --font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 703.125px) {
+  :root {
+    --font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  :root {
+    --font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 843px) {
+  :root {
+    --font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 937.5px) {
+  :root {
+    --font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1125px) {
+  :root {
+    --font-size: 48px;
+  }
+}
+
+@media screen and (min-width: 1218.75px) {
+  :root {
+    --font-size: 52px;
+  }
+}
+
+@media screen and (min-width: 1312.5px) {
+  :root {
+    --font-size: 56px;
+  }
+}
+
+@media screen and (min-width: 1959.4px) {
+  :root {
+    --font-size: 58px;
+  }
+}
+
+@media screen and (min-width: 1406.25px) {
+  :root {
+    --font-size: 60px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  :root {
+    --font-size: 64px;
+  }
+}
+
+.anytix * {
+  font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+.anytix .input, .anytix .select {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: calc(1.4 * var(--font-size)) calc(1.4 * var(--font-size));
+  height: auto;
+  font-size: calc(.77 * var(--font-size));
+  border-radius: calc(.6 * var(--font-size));
+  border: 1px solid #ddd;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: #2b3843;
+}
+
+.anytix .input ::-webkit-input-placeholder, .anytix .select ::-webkit-input-placeholder {
+  color: #ddd;
+}
+
+.anytix .input :-ms-input-placeholder, .anytix .select :-ms-input-placeholder {
+  color: #ddd;
+}
+
+.anytix .input ::-ms-input-placeholder, .anytix .select ::-ms-input-placeholder {
+  color: #ddd;
+}
+
+.anytix .input ::placeholder, .anytix .select ::placeholder {
+  color: #ddd;
+}
+
+.anytix input:disabled, .anytix input[readonly],
+.anytix textarea:disabled,
+.anytix textarea[readonly] {
+  background-color: #e6e6e6;
+  cursor: not-allowed;
+}
+
+.anytix span.is-error {
+  font-size: calc(.66 * var(--font-size));
+  color: #ED5B4C;
+  line-height: 1.5;
+}
+
+.anytix .page-title-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 0;
+  padding: 15px 12px;
+  background-color: #FFF;
+  border-bottom: 1px #E0E0E0 solid;
+  -webkit-box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.anytix .page-title-wrap h2 {
+  font-size: calc(1 * var(--font-size));
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: initial;
+}
+
+.anytix .page-title-wrap .history-link,
+.anytix .page-title-wrap .previous-link,
+.anytix .page-title-wrap .close-link {
+  display: inline-block;
+  width: calc(1 * var(--font-size));
+  height: calc(1 * var(--font-size));
+  line-height: 1;
+  vertical-align: middle;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: calc(1.45 * var(--font-size));
+  position: absolute;
+  top: 20px;
+}
+
+.anytix .page-title-wrap .previous-link {
+  left: 12px;
+  background-image: url("./../img/icon/ic_arrow-down_white.svg");
+}
+
+.anytix .page-title-wrap .previous-link[data-color="dark"] {
+  background-image: url("./../img/icon/ic_arrow-down_dark.svg");
+}
+
+.anytix .page-title-wrap .previous-link[data-color="white"] {
+  background-image: url("./../img/icon/ic_arrow-down_white.svg");
+}
+
+.anytix .page-title-wrap .close-link {
+  right: 12px;
+  background-image: url("./../img/icon/ic-close-s-dark.svg");
+}
+
+.anytix .page-title-wrap.infun {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0;
+  padding: 15px 12.5px;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.anytix .page-title-wrap.infun h2 {
+  font-size: calc(.83 * var(--font-size));
+  color: #666;
+  font-weight: normal;
+}
+
+.anytix .page-title-wrap.infun .history-link,
+.anytix .page-title-wrap.infun .previous-link,
+.anytix .page-title-wrap.infun .close-link {
+  top: 17px;
+}
+
+.anytix .search-box {
+  padding: 20px;
+}
+
+.anytix .search-box input.input {
+  display: block;
+  width: 100%;
+  min-width: unset;
+  padding: 6px 35px;
+  background-image: url("./../img/icon/search.svg");
+  background-position: left 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px auto;
+  background-color: #f4f4f4;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-color: #f4f4f4;
+  border-style: solid;
+  border-radius: 20px;
+  font-size: calc(0.77 * var(--font-size));
+  color: #333;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+
+.anytix .search-box input.input::-webkit-input-placeholder {
+  font-weight: normal;
+  color: #999;
+}
+
+.anytix .search-box input.input:-ms-input-placeholder {
+  font-weight: normal;
+  color: #999;
+}
+
+.anytix .search-box input.input::-ms-input-placeholder {
+  font-weight: normal;
+  color: #999;
+}
+
+.anytix .search-box input.input::placeholder {
+  font-weight: normal;
+  color: #999;
+}
+
+.anytix .blockchain-wall {
+  padding: 20px 20px 30px;
+}
+
+.anytix .blockchain-wall.have-blockchain-button {
+  padding-bottom: 125px;
+}
+
+.anytix .blockchain-wall.back {
+  padding-top: 30px;
+}
+
+.anytix .blockchain-wall.back h4 {
+  margin-bottom: 6px;
+  font-size: calc(.72 * var(--font-size));
+  color: #333;
+}
+
+.anytix .blockchain-wall h4 {
+  display: block;
+  margin-bottom: 20px;
+  font-size: calc(.88 * var(--font-size));
+  font-weight: 500;
+  line-height: 1.6;
+  color: #2b3843;
+}
+
+.anytix .blockchain-wall .btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: calc(.88 * var(--font-size));
+  color: #fff !important;
+  text-align: center;
+  line-height: 1.2;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #26d07c;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+.anytix .blockchain-wall .btn:hover {
+  background-color: #20b169;
+}
+
+.anytix .blockchain-wall .btn:disabled {
+  background-color: #ddd;
+}
+
+.anytix .blockchain-wall .btn-ghost {
+  min-width: 100%;
+  margin-top: calc(1 * var(--font-size));
+  padding: calc(1 * var(--font-size)) calc(1.6 * var(--font-size));
+  font-size: calc(.88 * var(--font-size));
+  font-weight: 500;
+  color: #26d07c;
+  line-height: 1.2;
+  background: none;
+  border: 1px #26d07c solid;
+  border-radius: calc(.6 * var(--font-size));
+}
+
+.anytix .blockchain-back-down {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 calc(2 * var(--font-size)) calc(3 * var(--font-size));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.anytix .blockchain-back-down p {
+  margin-bottom: calc(1.6 * var(--font-size));
+  font-size: calc(.66 * var(--font-size));
+  font-weight: 500;
+  color: #ED5B4C;
+  line-height: 1.6;
+}
+
+.anytix .blockchain-button {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: calc(1.5 * var(--font-size)) calc(2 * var(--font-size)) calc(3 * var(--font-size));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.anytix .blockchain-button .total-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.anytix .blockchain-button .total-box span {
+  display: block;
+  margin-bottom: calc(1.6 * var(--font-size));
+  font-size: calc(.83 * var(--font-size));
+  color: #2b3843;
+}
+
+.anytix .blockchain-button .total-box span.title {
+  font-weight: 700;
+}
+
+.anytix .blockchain-button .total-box span.fee {
+  font-size: calc(1.11 * var(--font-size));
+  font-weight: 500;
+  color: #FF9500;
+}
+
+.anytix .record-box {
+  margin-bottom: 25px;
+}
+
+.anytix .record-box .record-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.anytix .record-box .record-list .record-img {
+  width: 45px;
+  overflow: hidden;
+  margin-right: 12px;
+  padding-top: 45px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.anytix .record-box .record-list .record-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.anytix .record-box .record-list .record-info {
+  width: calc(100% - 45px - 12px - 10%);
+  line-height: 1.5;
+}
+
+.anytix .record-box .record-list .record-info h3 {
+  width: 100%;
+  height: 22.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: calc(.83 * var(--font-size));
+  font-weight: 500;
+}
+
+.anytix .record-box .record-list .record-info p {
+  width: 100%;
+  height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: calc(.72 * var(--font-size));
+  color: #666;
+}
+
+.anytix .record-box .record-list .record-icon {
+  width: 10%;
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.anytix .record-box .record-list .record-icon img {
+  width: 10px;
+}
+
+.anytix .record-box .record-list .record-icon.expand img {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.anytix .record-box .history {
+  display: none;
+  margin-top: 20px;
+}
+
+.anytix .record-box .history .dot-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.anytix .record-box .history .dot-list.first:before {
+  background-color: #26d07c;
+}
+
+.anytix .record-box .history .dot-list:before {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 5px;
+  border-radius: 20px;
+  background-color: #C4C4C4;
+}
+
+.anytix .record-box .history .dot-list:after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 0;
+  left: 3px;
+  top: 5px;
+  height: 100%;
+  width: 1px;
+  background-color: #EFEFEF;
+}
+
+.anytix .record-box .history .dot-list span {
+  font-size: calc(.72 * var(--font-size));
+}
+
+.anytix .record-box .history .dot-list span.time {
+  color: #26d07c;
+}
+
+.anytix .record-box .history .dot-list span.activity {
+  color: #767676;
+}
+
+.anytix .record-box .history .dot-list:last-of-type:after {
+  content: unset;
+}
+
+.anytix .pd-box {
+  padding: 25px 20px;
+  background-color: #F9F9F9;
+}
+
+.anytix .pd-box .pd-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.anytix .pd-box .pd-list .pd-img {
+  width: 56px;
+  overflow: hidden;
+  margin-right: 12px;
+  padding-top: 56px;
+  border: 1px #ddd solid;
+  background-color: #F4F4F4;
+  border-radius: 8px;
+  position: relative;
+}
+
+.anytix .pd-box .pd-list .pd-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.anytix .pd-box .pd-list .pd-info {
+  width: calc(100% - 56px - 12px);
+  line-height: 1.5;
+}
+
+.anytix .pd-box .pd-list .pd-info h3 {
+  overflow: hidden;
+  max-height: 45px;
+  margin-bottom: 5px;
+  font-size: calc(.83 * var(--font-size));
+  font-weight: 500;
+}
+
+.anytix .pd-box .pd-list .pd-info p {
+  font-size: calc(.611 * var(--font-size));
+  color: #666;
+}
+
+.anytix .pd-box h4 {
+  display: block;
+  margin-bottom: 20px;
+  font-size: calc(.88 * var(--font-size));
+  font-weight: 500;
+  line-height: 1.6;
+  color: #2b3843;
+}
+
+.anytix .pd-box .blockchain-info li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 15px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.anytix .pd-box .blockchain-info li span {
+  font-size: calc(.72 * var(--font-size));
+}
+
+.anytix .pd-box .blockchain-info li .title {
+  width: 20%;
+  font-weight: 500;
+}
+
+.anytix .pd-box .blockchain-info li .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 80%;
+}
+
+.anytix .pd-box .blockchain-info li .info textarea {
+  width: calc(100% - 20px);
+  min-height: auto;
+  margin-right: calc(1 * var(--font-size));
+  padding: 0;
+  font-size: calc(.72 * var(--font-size));
+  color: #666;
+  background: none;
+  border-width: 0;
+  resize: none;
+  outline: none;
+}
+
+.anytix .pd-box .blockchain-info li .info .btn-copy {
+  margin-top: 3px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.anytix .pd-box .blockchain-info li .info .btn-copy img {
+  width: 16px;
+}
+
+.anytix .pd-box .blockchain-info li:last-child {
+  margin-bottom: 0;
+}
+
+.anytix .record-list {
+  margin-bottom: 20px;
+}
+
+.anytix .record-list .record-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.anytix .record-list .record-title h4 {
+  width: calc(100% - 10%);
+  margin-bottom: 0;
+}
+
+.anytix .record-list .record-title .record-icon {
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.anytix .record-list .record-title .record-icon img {
+  width: 12px;
+}
+
+.anytix .record-list .record-title .record-icon.expand img {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.anytix .record-list .blockchain-info {
+  display: none;
+  margin-bottom: 40px;
+}
+
+.anytix .record-list .blockchain-info li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 15px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.anytix .record-list .blockchain-info li span {
+  font-size: calc(.72 * var(--font-size));
+}
+
+.anytix .record-list .blockchain-info li .title {
+  width: 22%;
+  font-weight: 500;
+}
+
+.anytix .record-list .blockchain-info li .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 78%;
+}
+
+.anytix .record-list .blockchain-info li .info textarea {
+  width: calc(100% - 20px);
+  min-height: auto;
+  margin-right: 10px;
+  padding: 0;
+  font-size: calc(.72 * var(--font-size));
+  color: #666;
+  background: none;
+  border-width: 0;
+  resize: none;
+  outline: none;
+}
+
+.anytix .record-list .blockchain-info li .info .btn-copy {
+  margin-top: 3px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.anytix .record-list .blockchain-info li .info .btn-copy img {
+  width: 16px;
+}
+
+.anytix .record-list .blockchain-info li .info.success, .anytix .record-list .blockchain-info li .info.waiting, .anytix .record-list .blockchain-info li .info.fail {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.anytix .record-list .blockchain-info li .info.success::before, .anytix .record-list .blockchain-info li .info.waiting::before, .anytix .record-list .blockchain-info li .info.fail::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #26d07c;
+  position: relative;
+  top: -1px;
+}
+
+.anytix .record-list .blockchain-info li .info.success span, .anytix .record-list .blockchain-info li .info.waiting span, .anytix .record-list .blockchain-info li .info.fail span {
+  margin-left: 5px;
+}
+
+.anytix .record-list .blockchain-info li .info.success {
+  color: #26d07c;
+}
+
+.anytix .record-list .blockchain-info li .info.success::before {
+  background-color: #26d07c;
+}
+
+.anytix .record-list .blockchain-info li .info.waiting {
+  color: #FF9500;
+}
+
+.anytix .record-list .blockchain-info li .info.waiting::before {
+  background-color: #FF9500;
+}
+
+.anytix .record-list .blockchain-info li .info.fail span {
+  color: #ED5B4C;
+}
+
+.anytix .record-list .blockchain-info li .info.fail::before {
+  background-color: #ED5B4C;
+}
+
+.anytix .record-list .blockchain-info li:last-child {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=record.css.map */

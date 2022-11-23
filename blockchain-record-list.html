@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收藏品紀錄</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="./css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/record.css" rel="stylesheet">
+</head>
+<body>
+    <div class="anytix">
+        <div class="main-content" id="app">
+            <div class="page-title-wrap">
+                <!-- <a class="previous-link" data-color="dark" href="#"></a> -->
+                <h2>收藏品紀錄</h2>
+                <a class="close-link" href="#"></a>
+            </div>
+            <div class="search-box">
+                <input class="input" type="text" placeholder="搜尋紀錄">
+            </div>
+            <div class="tab-menu">
+                <template v-for="item in chipsList">
+                    <div class="tab-menu-item" :class="item.value == activeTab? 'active': ''" @click="activeTab = item.value">{{ item.label }}</div>
+                </template>
+            </div>
+            <div class="blockchain-wall animated fadeIn">
+                <template v-for="item,idx in recordList">
+                    <div class="record-box" :class="tabListControl(item.category)">
+                        <div class="record-list">
+                            <div class="record-img">
+                                <img :src="item.img" alt=""/>
+                            </div>
+                            <div class="record-info">
+                                <h3>{{item.pdName}}</h3>
+                                <p>Token ID:{{item.tokenID}}</p>
+                            </div>
+                            <div class="record-icon">
+                                <img src="images/icon/ic_arrow-downdown_dark.svg" alt=""/>
+                            </div>
+                        </div>
+                        <div class="history">
+                            <ul class="box">
+                                <template v-for="item,idx in history" >
+                                    <li class="dot-list first" v-if="idx === 0">
+                                        <span class="time">{{item.time}}</span>
+                                        <span class="activity">{{item.activity}}</span>
+                                    </li>
+                                    <li class="dot-list last" v-else-if="(idx+1) === history.length">
+                                        <span class="time">{{item.time}}</span>
+                                        <span class="activity">{{item.activity}}</span>
+                                    </li> 
+                                    <li class="dot-list" v-else>
+                                        <span class="time">{{item.time}}</span>
+                                        <span class="activity">{{item.activity}}</span>
+                                    </li>
+                                </template>
+                            </ul>
+                            <a class="btn" href="./blockchain-record.html">查看詳細資訊</a>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="./js/lottie.min.js"></script>
+    <script>
+        var jQfn = function (){
+
+        };
+
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    activeTab: 'collection',
+                    chipsList: [
+                        {label: '收藏品', value: 'collection'},
+                        {label: '區塊鏈', value: 'blockchain'},
+                    ],
+                    recordList: [
+                        {
+                            img: 'images/pd-3d.jpg',
+                            pdName: 'ATB-原子少年能量盒原子少年能量盒原子少年能量盒原子少年能量盒1',
+                            tokenID: '24623xxx876395024623xxx876395024623xxx876395024623xxx8763950',
+                            category: 'blockchain',
+                        },
+                        {
+                            img: 'images/pd-3d-2.jpg',
+                            pdName: 'ATB-原子少年能量盒2',
+                            tokenID: '122193daijixxx12923901ks',
+                            category: 'blockchain',
+                        },
+                        {
+                            img: 'images/pd-3d.jpg',
+                            pdName: 'ATB-原子少年能量盒3',
+                            tokenID: '122193daijixxx12923901ks',
+                            category: 'blockchain',
+                        },
+                    ],
+                    history: [
+                        {
+                            time: '2022/08/08 12:00',
+                            activity: '已成功轉入 beanfun! 我的寶貝',
+                        },
+                        {
+                            time: '2022/08/07 12:00',
+                            activity: '轉入 beanfun! 我的寶貝，等待交易確認中。',
+                        },
+                        {
+                            time: '2022/08/06 12:00',
+                            activity: '已成功轉出至區塊鏈',
+                        },
+                        {
+                            time: '2022/08/05 12:00',
+                            activity: '轉出至區塊鏈，等待交易確認中。',
+                        },
+                    ],
+                }
+            },
+            watch: {
+                activeTab: function() {
+                    this.tabListControl
+                },
+            },
+            methods: {
+                tabListControl: function(val) {
+                    if (this.activeTab !== 'all') {
+                        if (val !== this.activeTab) {
+                            return 'hide'
+                        }
+                    }
+                },
+            },
+        });
+ 
+        $(function(){
+            //展開收合
+            $(".record-icon").click(function(){
+                $(this).toggleClass("expand");
+                if($(this).hasClass("expand")){
+                    $(this).parent().siblings(".history").slideDown("slow");
+                }else{
+                    $(this).parent().siblings(".history").slideUp("slow");
+                };
+            });
+        });
+    </script>
+  </body>
+</html>

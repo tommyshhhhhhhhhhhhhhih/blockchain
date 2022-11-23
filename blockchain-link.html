@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>連結成功</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="./css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/blockchain.css" rel="stylesheet">
+</head>
+<body>
+    <div class="anytix">
+        <div class="main-content" id="app">
+            <div class="blockchain-wall back">
+                <div class="wallet-box">
+                    <div class="wallet-img">
+                        <img src="images/pd-3d.jpg" alt=""/>
+                    </div>
+                    <div class="wallet-info">
+                        <p class="account">Account 1 ({{account}})</p>
+                        <p class="balance">餘額： ${{amount}} ({{ETH}} ETH)</p>
+                    </div>
+                </div>
+                <div class="choice-assets">
+                    <h4>選擇轉入 beanfun! 我的寶貝資產</h4>
+                    <div class="select no-bg">
+                        <!-- 尚未選擇資產 -->
+                        <p class="not-selected">選擇要轉入 beanfun! 我的寶貝資產和 Token ID</p>
+                        <!-- 已選擇資產 -->
+                        <!-- <div class="selected">
+                            <div class="item-img">
+                                <img src="images/pd-3d-2.jpg" alt=""/>
+                            </div>
+                            <div class="item-info">
+                                <p class="name">{{itemName}}</p>
+                                <p class="token">Token ID:{{itemToken}}</p>
+                            </div>
+                        </div> -->
+                        <a href="blockchain-item.html" class="link"><img src="images/icon/ic_arrow-right_dark.svg" alt=""/></a>
+                    </div>
+                </div>
+                <!-- <div class="amount-box">
+                    <div class="head">
+                        <h4>轉出數量</h4>
+                        <p>剩餘數量 1</p>
+                    </div>
+                    <input class="input" type="number" value="1" min="1" max="1" step="1" disabled>
+                </div> -->
+                <div class="blockchain-back-down">
+                    <p>您即將進入支付轉入手續費流程，支付完成後不代表資產已成功順利轉入。支付成功後會需要一段處理時間，請耐心等候。</p>
+                    <!-- 未選擇資產請 disabled -->
+                    <button class="btn" type="submit" data-fancybox data-src="#exchangeList">轉入beanfun! 我的寶貝</button>
+                </div>
+            </div>
+            <!-- Popup 開啟錢包確認 -->
+            <div class="pd-spec" id="exchangeList" style="display: none;">
+                <h4 class="reveal-msg-title">需要開啟 MetaMask 登入區塊鏈錢包</h4>
+                <div class="button-box">
+                    <button class="btn-ghost" type="button" onclick="$.fancybox.close();">取消</button>
+                    <button class="btn-cta" type="button" @click=viewRecords>開啟應用程式</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery.fancybox.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script>
+        var jQfn = function (){
+
+        };
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    account: '0x1dC8...B62A',
+                    amount: '1,000',
+                    ETH: '2',
+                    itemName: 'ATB-原子少年能量盒原子少年能量盒原子少年能量盒原子少年能量盒原子少年能量盒原子少年能量盒',
+                    itemToken: '24623xxx8763950',
+                    url: './blockchain-success-out.html',
+                }
+            },
+            watch: {
+
+            },
+            methods: {
+                viewRecords(){
+                    window.location.href = this.url;
+                },
+            },
+        });
+    </script>
+  </body>
+</html>

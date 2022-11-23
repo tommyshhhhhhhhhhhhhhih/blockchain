@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入區塊鏈錢包</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="./css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/blockchain.css" rel="stylesheet">
+</head>
+<body>
+    <div class="anytix">
+        <div class="main-content" id="app">
+            <div class="page-title-wrap">
+                <!-- <a class="previous-link" data-color="dark" href="#"></a> -->
+                <h2>登入區塊鏈錢包</h2>
+                <a class="close-link" href="#"></a>
+            </div>
+            <div class="blockchain-wall animated fadeIn">
+                <div class="blockchain-in">
+                    <p>請選擇登入方式</p>
+                    <div class="blockchain-in-list">
+                        <ul>
+                            <!-- <li>
+                                <button type="submit" data-fancybox data-src="#exchangeList" ><img src="images/sign_in_metamask.svg" alt=""/></button>
+                            </li> -->
+                            <li>
+                                <button type="submit" data-fancybox data-src="#exchangeList" ><img src="images/sign_in_WalletConnect.svg" alt=""/></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Popup 開啟錢包確認 -->
+            <div class="pd-spec" id="exchangeList" style="display: none;">
+                <h4 class="reveal-msg-title">需要開啟 MetaMask 登入區塊鏈錢包</h4>
+                <div class="button-box">
+                  <button class="btn-ghost" type="button" onclick="$.fancybox.close();">取消</button>
+                  <button class="btn-cta" type="button" @click=viewRecords>開啟應用程式</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery.fancybox.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script>
+        var jQfn = function (){
+
+        };
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    url: './sign-in.html',
+                }
+            },
+            watch: {
+
+            },
+            methods: {
+                viewRecords(){
+                    window.location.href = this.url;
+                },
+            },
+        });
+    </script>
+  </body>
+</html>

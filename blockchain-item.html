@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選擇資產</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="./css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/blockchain.css" rel="stylesheet">
+</head>
+<body>
+    <div class="anytix">
+        <div class="main-content" id="app">
+            <div class="blockchain-wall blockchain-item">
+                <p class="back-title">選擇要轉入beanfun! 我的寶貝的資產和 Token ID</p>
+                <div class="item-box">
+                    <ul>
+                        <template v-for="item,idx in itemList">
+                            <li>
+                                <label class="radio-list">
+                                    <input type="radio" name="answer" name="itemRadio" :value="item.radioId" v-model="itemRadio">
+                                    <div class="item-img">
+                                        <img src="images/pd-3d.jpg" alt=""/>
+                                    </div>
+                                    <div class="item-info">
+                                        <p class="name">{{item.itemName}}</p>
+                                        <p class="token">Token ID:{{item.tokenID}}</p>
+                                    </div>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <div class="blockchain-back-down">
+                    <button class="btn" type="submit" :disabled="!itemRadio" @click="refreshto">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery.fancybox.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script>
+        var jQfn = function (){
+
+        };
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    url: './blockchain-link.html',
+                    itemRadio: 1,
+                    itemList: [
+                        {
+                            radioId: 1,
+                            itemName: 'ATB-原子少年能量盒熱賣暢銷組合包熱賣組',
+                            tokenID: '24623xxx8763950',
+                        },
+                        {
+                            radioId: 2,
+                            itemName: 'ATB-原子少年能量盒',
+                            tokenID: '24623xxx8763950',
+                        },
+                        {
+                            radioId: 3,
+                            itemName: 'ATB-原子少年能量盒',
+                            tokenID: '24623xxx8763950',
+                        },
+                    ],
+                }
+            },
+            watch: {
+
+            },
+            methods: {
+                refreshto() {
+                    window.location.href = this.url;
+                },
+            },
+        });
+    </script>
+  </body>
+</html>
