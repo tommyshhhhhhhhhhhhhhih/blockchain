@@ -50,9 +50,9 @@
                     <input class="input" type="number" value="1" min="1" max="1" step="1" disabled>
                 </div> -->
                 <div class="blockchain-back-down">
-                    <p>您即將進入支付轉入手續費流程，支付完成後不代表資產已成功順利轉入。支付成功後會需要一段處理時間，請耐心等候。</p>
+                    <p>您即將進入支付轉入手續費流程，支付完成後不代表資產已成功順利轉入。支付成功後會需要一段處理時間，請耐心等候。<br>轉入結果可前往 beanfun! App 通知中心確認進度。</p>
                     <!-- 未選擇資產請 disabled -->
-                    <button class="btn" type="submit" data-fancybox data-src="#exchangeList">轉入beanfun! 我的寶貝</button>
+                    <button class="btn" type="submit" data-fancybox data-src="#exchangeList">轉入 beanfun! 我的寶貝</button>
                 </div>
             </div>
             <!-- Popup 開啟錢包確認 -->
@@ -60,7 +60,7 @@
                 <h4 class="reveal-msg-title">需要開啟 MetaMask 登入區塊鏈錢包</h4>
                 <div class="button-box">
                     <button class="btn-ghost" type="button" onclick="$.fancybox.close();">取消</button>
-                    <button class="btn-cta" type="button" @click=viewRecords>開啟應用程式</button>
+                    <button class="btn-cta" type="button" onclick="$.fancybox.close();">開啟應用程式</button>
                 </div>
             </div>
         </div>
